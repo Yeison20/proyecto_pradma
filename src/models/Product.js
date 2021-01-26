@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 import { sequelize } from '../database/database';
-import Tax from './Tax';
+import Sale from './sale';
 
 const Product = sequelize.define('product', {
     id: {
@@ -18,7 +18,7 @@ const Product = sequelize.define('product', {
     freezeTableName: true,
 });
 
-Product.hasMany(Tax, { foreingKey: 'product_id', sourceKey: 'id'});
-Tax.belongsTo(Product, { foreingKey: 'product_id', sourceKey: 'id'});
+Product.hasMany(Sale, { foreingKey: 'product_id', sourceKey: 'id'});
+Sale.belongsTo(Product, { foreingKey: 'product_id', sourceKey: 'id'});
 
 export default Product;

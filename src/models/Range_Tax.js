@@ -14,9 +14,14 @@ const Range_Tax = sequelize.define('range_tax', {
     },
     final: {
         type: Sequelize.BIGINT
+    },
+    value: {
+        type: Sequelize.INTEGER
     }
 },{
-    timestamps: false
+    timestamps: false,
+    freezeTableName: true,
+
 });
 
 export default Range_Tax;

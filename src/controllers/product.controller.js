@@ -1,11 +1,14 @@
 import { sequelize } from "../database/database";
 import Product from "../models/Product";
+import Sequelize from 'sequelize';
 
 export async function createProduct (req, res){
     const {name, value } = req.body;
+    const Op = Sequelize.Op;
     const product = await Product.findOne({
         where: {
-            name: name,
+            name: { [Op.iLike]: `%${name}%`
+            }
         },
     });
 
