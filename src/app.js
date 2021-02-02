@@ -6,6 +6,7 @@ import productRoutes from './routes/product';
 import taxRoutes from './routes/tax';
 import range_taxRoutes from './routes/range_tax';
 
+
 //initialization
 const app = express();
 

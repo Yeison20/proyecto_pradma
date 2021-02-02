@@ -6,7 +6,8 @@ import Sale from './sale';
 const Tax = sequelize.define('tax',{
     id: {
         type: Sequelize.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement : true 
     },
     name: {
         type: Sequelize.TEXT
@@ -17,10 +18,12 @@ const Tax = sequelize.define('tax',{
 
 });
 
-Tax.hasMany(Sale, { foreingKey: 'tax_id', sourceKey: 'id'});
-Sale.belongsTo(Tax, { foreingKey: 'tax_id', sourceKey: 'id'});
+Tax.hasMany(Range_Tax, { foreingKey: 'taxId', sourceKey: 'id'});
+Range_Tax.belongsTo(Tax, { foreingKey: 'taxId', souceKey: 'id'});
 
-Tax.hasMany(Range_Tax, { foreingKey: 'tax_id', sourceKey: 'id'});
-Range_Tax.belongsTo(Tax, { foreingKey: 'tax_id', souceKey: 'id'});
+Tax.hasMany(Sale, { foreingKey: 'taxid', sourceKey: 'id'});
+Sale.belongsTo(Tax, { foreingKey: 'taxid', sourceKey: 'id'});
+
+
 
 export default Tax;

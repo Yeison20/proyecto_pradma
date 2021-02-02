@@ -4,9 +4,10 @@ import { sequelize } from '../database/database';
 const Range_Tax = sequelize.define('range_tax', {
     id: {
         type: Sequelize.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement : true 
     },
-    tax_id: {
+    taxId: {
         type: Sequelize.INTEGER
     },
     start: {
